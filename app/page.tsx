@@ -1,7 +1,16 @@
 // import Image from 'next/image'
-// import { Inter } from 'next/font/google'
+
+import Header from '@components/compound/Header'
 
 function HomePage() {
-  return <div>HomePage</div>
+  return (
+    <>
+      <Header
+        logo={<Header.Logo text="In-tuned" />}
+        toggleTheme={<Header.ToggleTheme />}
+      />
+      <div>Home Page</div>
+    </>
+  )
 }
 export default HomePage
