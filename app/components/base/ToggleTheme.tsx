@@ -30,7 +30,11 @@ const toggleLocalStorageTheme = () => {
   // localStorage.removeItem('theme')
 }
 
-function ToggleTheme() {
+type ToggleThemeProps = {
+  showLabel?: boolean
+}
+
+function ToggleTheme({ showLabel }: ToggleThemeProps) {
   const [theme, setTheme] = useState<string | null>(initTheme)
 
   const handleToggleTheme = () => {
@@ -39,11 +43,18 @@ function ToggleTheme() {
   }
 
   const handleRenderThemeIcon = () => {
+    let icon = <Moon />
+    let label = 'Dark mode'
     if (theme === 'dark') {
-      return <Sun />
-    } else {
-      return <Moon />
+      icon = <Sun />
+      label = 'Light mode'
     }
+
+    return (
+      <div className="flex gap-1 items-center">
+        {icon} {showLabel ? label : null}
+      </div>
+    )
   }
 
   return <button onClick={handleToggleTheme}>{handleRenderThemeIcon()}</button>

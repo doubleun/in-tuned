@@ -12,7 +12,7 @@ export const metadata = {
 
 const rootLayoutStyles = {
   bgWrap: 'fixed h-full w-full overflow-hidden z-[-1]',
-  bg: 'bg-white dark:bg-transparent',
+  bg: 'relative bg-white dark:bg-transparent',
 }
 
 export default function RootLayout({

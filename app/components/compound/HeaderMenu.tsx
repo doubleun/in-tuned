@@ -12,16 +12,26 @@ import {
 } from '@components/ui/navigation-menu'
 
 import ToggleTheme from '../base/ToggleTheme'
-import { Menu, Youtube } from 'lucide-react'
+import { Youtube } from 'lucide-react'
 import MobileMenu from '@components/base/MobileMenu'
 
-function HeaderMenu() {
+interface HeaderMenuListProps {
+  direction?: 'col' | 'row'
+  showToggleLabel?: boolean
+  className?: string | undefined
+}
+
+function HeaderMenuList({
+  direction = 'row',
+  showToggleLabel,
+  className,
+}: HeaderMenuListProps) {
   return (
-    <NavigationMenu>
-      <NavigationMenuList className="hidden md:flex gap-1">
+    <NavigationMenu className={className}>
+      <NavigationMenuList className={`flex-${direction} gap-1`}>
         <NavigationMenuItem>
           <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-            <ToggleTheme />
+            <ToggleTheme showLabel={showToggleLabel} />
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
@@ -50,9 +60,20 @@ function HeaderMenu() {
           </Link>
         </NavigationMenuItem>
       </NavigationMenuList>
-      <MobileMenu />
     </NavigationMenu>
   )
 }
 
+function HeaderMenu() {
+  return (
+    <>
+      <div className="hidden md:flex">
+        <HeaderMenuList />
+      </div>
+      <MobileMenu />
+    </>
+  )
+}
+
 export default HeaderMenu
+HeaderMenu.HeaderMenuList = HeaderMenuList
