@@ -30,9 +30,10 @@ function HeaderMenuList({
     <NavigationMenu className={className}>
       <NavigationMenuList className={`flex-${direction} gap-1`}>
         <NavigationMenuItem>
-          <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-            <ToggleTheme showLabel={showToggleLabel} />
-          </NavigationMenuLink>
+          <ToggleTheme
+            className={navigationMenuTriggerStyle()}
+            showLabel={showToggleLabel}
+          />
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>

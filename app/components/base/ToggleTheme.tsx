@@ -31,10 +31,11 @@ const toggleLocalStorageTheme = () => {
 }
 
 type ToggleThemeProps = {
+  className?: string | undefined
   showLabel?: boolean
 }
 
-function ToggleTheme({ showLabel }: ToggleThemeProps) {
+function ToggleTheme({ className, showLabel }: ToggleThemeProps) {
   const [theme, setTheme] = useState<string | null>(initTheme)
 
   const handleToggleTheme = () => {
@@ -57,6 +58,10 @@ function ToggleTheme({ showLabel }: ToggleThemeProps) {
     )
   }
 
-  return <button onClick={handleToggleTheme}>{handleRenderThemeIcon()}</button>
+  return (
+    <button className={className} onClick={handleToggleTheme}>
+      {handleRenderThemeIcon()}
+    </button>
+  )
 }
 export default ToggleTheme
