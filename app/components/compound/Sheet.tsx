@@ -13,14 +13,19 @@ import { Menu } from 'lucide-react'
 import { ReactNode } from 'react'
 
 interface SheetComponentProps {
+  dataTestId?: string | undefined
   description?: string | undefined
   content?: ReactNode
 }
 
 //TODO: make sheet generic
-function SheetComponent({ content, description }: SheetComponentProps) {
+function SheetComponent({
+  dataTestId,
+  content,
+  description,
+}: SheetComponentProps) {
   return (
-    <Sheet>
+    <Sheet data-test-id={dataTestId}>
       <SheetTrigger asChild>
         <Menu width={28} height={28} />
       </SheetTrigger>
@@ -29,15 +34,16 @@ function SheetComponent({ content, description }: SheetComponentProps) {
         position="bottom"
         size="xl"
         className="rounded-2xl"
+        data-test-id={`${dataTestId}-content`}
       >
-        <SheetHeader>
+        <SheetHeader data-test-id={`${dataTestId}-header`}>
           <SheetTitle>Menu</SheetTitle>
           <SheetDescription>{description}</SheetDescription>
         </SheetHeader>
 
         {content && content}
 
-        <SheetFooter>
+        <SheetFooter data-test-id={`${dataTestId}-footer`}>
           <button>Save</button>
         </SheetFooter>
       </SheetContent>

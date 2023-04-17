@@ -9,7 +9,9 @@ function HomePage() {
         logo={<Header.Logo text="In-tuned" />}
         toggleTheme={<Header.ToggleTheme />}
       />
-      <div>Home Page</div>
+      <div className="h-full">
+        <h1>Test</h1>
+      </div>
     </>
   )
 }
