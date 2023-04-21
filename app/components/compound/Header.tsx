@@ -11,7 +11,7 @@ const styles = {
   header:
     // 'sticky w-full h-16 border-b border-b-slate-200 bg-white dark:border-b-slate-700 dark:bg-slate-900',
     'sticky w-full h-16 border-b border-b-slate-200 bg-white dark:border-0 dark:bg-transparent',
-  nav: 'flex items-center mx-6 md:mx-14 w-auto h-full justify-between',
+  nav: 'flex items-center w-auto h-full justify-between',
 }
 
 function Header({ logo, toggleTheme }: HeaderComponent) {

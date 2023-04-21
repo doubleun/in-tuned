@@ -27,6 +27,10 @@ body {
 } */
 
 @layer base {
+  body {
+    height: 100vh;
+    height: 100svh;
+  }
   .dark {
     @apply text-slate-50;
   }

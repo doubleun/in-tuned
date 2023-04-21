@@ -11,8 +11,9 @@ export const metadata = {
 }
 
 const rootLayoutStyles = {
-  bgWrap: 'fixed h-full w-full overflow-hidden z-[-1]',
-  bg: 'relative bg-white dark:bg-transparent',
+  // bgWrap: 'fixed h-full w-full overflow-hidden z-[-1]',
+  bgWrap: 'absolute inset-0 h-[100svh] w-full overflow-visible z-[-1] bg-black',
+  bg: 'relative bg-white dark:bg-transparent w-auto h-full px-6 md:px-14',
 }
 
 export default function RootLayout({
@@ -38,11 +39,11 @@ export default function RootLayout({
       <body>
         <div className={rootLayoutStyles.bgWrap}>
           <Image
-            src={'/bg.png'}
+            src={'/bg2.png'}
             alt="bg"
             priority
             fill={true}
-            style={{ objectFit: 'cover' }}
+            className="object-cover object-center opacity-50"
           />
         </div>
         <div className={rootLayoutStyles.bg}>{children}</div>

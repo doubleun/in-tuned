@@ -43,9 +43,9 @@ function SheetComponent({
 
         {content && content}
 
-        <SheetFooter data-test-id={`${dataTestId}-footer`}>
+        {/* <SheetFooter data-test-id={`${dataTestId}-footer`}>
           <button>Save</button>
-        </SheetFooter>
+        </SheetFooter> */}
       </SheetContent>
     </Sheet>
   )

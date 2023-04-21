@@ -1,0 +1,76 @@
+import { cn } from '@utils'
+import { VariantProps, cva } from 'class-variance-authority'
+import * as fonts from '@fonts'
+
+const { righteous, inter, roboto } = fonts
+
+interface TextProps extends VariantProps<typeof textVariants> {
+  text: string
+  className?: string | undefined
+}
+
+const defaultTextTwClass = `text-base text-slate-900 dark:text-slate-100`
+
+const textVariants = cva(defaultTextTwClass, {
+  variants: {
+    typo: {
+      h1: 'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl',
+      h2: 'mt-6 scroll-m-20 text-3xl font-semibold tracking-tight',
+      h3: 'mt-2 scroll-m-20 text-2xl font-semibold tracking-tight',
+      h4: 'mt-2 scroll-m-20 text-xl font-semibold tracking-tight',
+      p: 'leading-7 [&:not(:first-child)]:mt-6',
+      lead: 'text-xl text-slate-700 dark:text-slate-400',
+      code: 'relative rounded bg-slate-100 py-[0.2rem] px-[0.3rem] font-mono text-sm font-semibold text-slate-900 dark:bg-slate-800 dark:text-slate-400',
+    },
+    weight: {
+      normal: 'font-normal',
+      bold: 'font-bold',
+    },
+    style: {
+      normal: 'not-italic',
+      italic: 'italic',
+      divider:
+        'border-b border-b-slate-200 pb-2 dark:border-b-slate-700  transition-colors first:mt-0',
+    },
+    size: {
+      xs: 'text-xs',
+      sm: 'text-sm',
+      md: 'text-base',
+      lg: 'text-lg',
+      xl: 'text-xl',
+      '2xl': 'text-2xl',
+      '3xl': 'text-3xl',
+      '4xl': 'text-4xl',
+      '5xl': 'text-5xl',
+      '6xl': 'text-6xl',
+      '7xl': 'text-7xl',
+      '8xl': 'text-8xl',
+      '9xl': 'text-9xl',
+      'd-md': 'text-sm sm:text-lg md:text-xl lg:text-2xl',
+      'd-lg': 'text-2xl sm:text-4xl md:text-5xl lg:text-6xl',
+    },
+    font: {
+      righteous: righteous.className,
+      inter: inter.className,
+      roboto: roboto.className,
+    },
+  },
+  compoundVariants: [],
+  defaultVariants: {
+    typo: 'p',
+    weight: 'normal',
+    style: 'normal',
+  },
+})
+
+function Typography({ text, className, ...variantsConfig }: TextProps) {
+  return <p className={cn(textVariants(variantsConfig), className)}>{text}</p>
+}
+
+export default Typography
+
+// Get in-tuned with the latest in AI technology! 🚀🔬
+
+// Hey there! Welcome to In-tuned, where we explore the exciting world of AI and bring you the latest developments in machine learning.
+
+// Our team of Thai creators is passionate about AI and its potential to transform our world. Through our videos, we share our knowledge to help you stay ahead of the curve and be in-tuned with the future of technology.
