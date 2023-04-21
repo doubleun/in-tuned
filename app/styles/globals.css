@@ -34,4 +34,11 @@ body {
   .dark {
     @apply text-slate-50;
   }
+
+  .custom-container {
+    @apply px-6 md:px-14;
+  }
+  .h-no-nav {
+    height: calc(100svh - 64px);
+  }
 }

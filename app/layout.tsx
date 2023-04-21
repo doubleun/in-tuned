@@ -4,6 +4,7 @@ import { NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
 import clsx from 'clsx'
 import Image from 'next/image'
+import Header from '@components/compound/Header'
 
 export const metadata = {
   title: 'Create Next App',
@@ -17,12 +18,13 @@ const helperTwClass = {
 
 const rootLayoutTwClass = {
   // bgWrap: 'fixed h-full w-full overflow-hidden z-[-1]',
-  bgWrap: 'absolute inset-0 h-[100svh] w-full overflow-visible z-[-1] bg-black',
-  bg: 'relative bg-white dark:bg-transparent w-auto h-full px-6 md:px-14',
+  // bgWrap: 'absolute inset-0 h-[100svh] w-full overflow-visible z-[-1] bg-black',
+  bgWrap: 'absolute inset-0 h-[100svh] w-full z-[-1] bg-black',
+  homePageParent: 'relative bg-white dark:bg-transparent h-fit w-auto',
   charContainer:
     'absolute w-24 h-36 right-[1%] top-[46%] translate-y-[-60%] sm:w-32 sm:h-48 sm:right-[10%] md:w-40 md:h-60 md:top-[48%] lg:w-44 lg:h-64 lg:right-[12%] xl:right-[20%]',
   charAnimation:
-    'animate-bounce duration-5000 ease-in-out top-[34%] md:top-[28%] lg:top-[30%]',
+    'animate-bounce duration-6000 ease-in-out top-[34%] md:top-[28%] lg:top-[30%]',
 }
 
 export default function RootLayout({
@@ -45,9 +47,20 @@ export default function RootLayout({
         // ['dark']: currentTheme === 'dark'
       })}
     >
-      <body>
+      <body className="relative h-fit">
+        {/* Header */}
+        <div
+          data-test-id="main-header-nav"
+          className="sticky top-0 z-1 bg- custom-container"
+        >
+          <Header
+            logo={<Header.Logo text="In-tuned" />}
+            toggleTheme={<Header.ToggleTheme />}
+          />
+        </div>
+
+        {/* home page background */}
         <div className={rootLayoutTwClass.bgWrap}>
-          {/* home page background */}
           <Image
             src={'/bg.png'}
             alt="bg"
@@ -65,7 +78,7 @@ export default function RootLayout({
             <Image src={'/char_bg.png'} alt="char" fill={true} />
           </div>
         </div>
-        <div className={rootLayoutTwClass.bg}>{children}</div>
+        <div className={rootLayoutTwClass.homePageParent}>{children}</div>
       </body>
     </html>
   )

@@ -15,6 +15,7 @@ module.exports = {
     extend: {
       colors: {
         brand: brandColor,
+        brandBg: '#010312',
       },
       keyframes: {
         'accordion-down': {
@@ -36,7 +37,7 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       transitionDuration: {
-        5000: '5000ms',
+        6000: '6000ms',
       },
     },
   },
