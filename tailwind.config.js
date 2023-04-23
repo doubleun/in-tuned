@@ -1,7 +1,7 @@
 // const { fontFamily } = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
-const brandColor = colors.amber
+const brandColor = colors.indigo
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -15,7 +15,9 @@ module.exports = {
     extend: {
       colors: {
         brand: brandColor,
-        brandBg: '#010312',
+        brandBg: '#01061B',
+        brandNavBgFrom: '#030B1F',
+        brandNavBgTo: '#010516',
       },
       keyframes: {
         'accordion-down': {

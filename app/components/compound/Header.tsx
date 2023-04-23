@@ -1,23 +1,35 @@
+'use client'
+
 import { ReactNode } from 'react'
-import { Logo, ToggleTheme } from '@components/base'
+import { Logo } from '@components/base'
 import HeaderMenu from '@components/compound/HeaderMenu'
+import { useScrollPosition } from '@hooks'
+import { cn } from '@utils'
 
 interface HeaderComponent {
-  logo: ReactNode
-  toggleTheme: ReactNode
+  logo?: ReactNode
 }
 
-const styles = {
+const stylesTwClass = {
   header:
     // 'sticky w-full h-16 border-b border-b-slate-200 bg-white dark:border-b-slate-700 dark:bg-slate-900',
-    'sticky w-full h-16 border-b border-b-slate-200 bg-white dark:border-0 dark:bg-transparent',
-  nav: 'flex items-center w-auto h-full justify-between',
+    'sticky w-full h-16 border-b border-b-slate-200 bg-white dark:border-0 dark:bg-transparent dark:transition-colors dark:duration-700',
+  headerScrolled: `transition-colors dark:bg-brandNavBgTo duration-1000`,
+  nav: 'flex items-center w-auto h-full justify-between custom-container',
 }
 
-function Header({ logo, toggleTheme }: HeaderComponent) {
+function Header({ logo }: HeaderComponent) {
+  const scrollPosition = useScrollPosition()
+  console.log(scrollPosition)
+
   return (
-    <div className={styles.header}>
-      <div className={styles.nav}>
+    <div
+      data-test-id="header-nav-container"
+      className={cn([stylesTwClass.header], {
+        [stylesTwClass.headerScrolled]: scrollPosition > 200,
+      })}
+    >
+      <div data-test-id="header-nav-content" className={stylesTwClass.nav}>
         {logo}
         <div>
           <HeaderMenu />
@@ -28,8 +40,6 @@ function Header({ logo, toggleTheme }: HeaderComponent) {
 }
 
 export default Header
-Header.Logo = Logo
-Header.ToggleTheme = ToggleTheme
 
 // colors
 // lightPrimary: #f8e1bc

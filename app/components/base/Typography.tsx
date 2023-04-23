@@ -6,6 +6,7 @@ const { righteous, inter, roboto } = fonts
 
 interface TextProps extends VariantProps<typeof textVariants> {
   text: string
+  dataTestId: string
   className?: string | undefined
 }
 
@@ -15,9 +16,9 @@ const textVariants = cva(defaultTextTwClass, {
   variants: {
     typo: {
       h1: 'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl',
-      h2: 'mt-6 scroll-m-20 text-3xl font-semibold tracking-tight',
-      h3: 'mt-2 scroll-m-20 text-2xl font-semibold tracking-tight',
-      h4: 'mt-2 scroll-m-20 text-xl font-semibold tracking-tight',
+      h2: 'scroll-m-20 text-3xl font-semibold tracking-tight',
+      h3: 'scroll-m-20 text-2xl font-semibold tracking-tight',
+      h4: 'scroll-m-20 text-xl font-semibold tracking-tight',
       p: 'leading-7 [&:not(:first-child)]:mt-6',
       lead: 'text-xl text-slate-700 dark:text-slate-400',
       code: 'relative rounded bg-slate-100 py-[0.2rem] px-[0.3rem] font-mono text-sm font-semibold text-slate-900 dark:bg-slate-800 dark:text-slate-400',
@@ -46,7 +47,7 @@ const textVariants = cva(defaultTextTwClass, {
       '7xl': 'text-7xl',
       '8xl': 'text-8xl',
       '9xl': 'text-9xl',
-      'd-md': 'text-sm sm:text-lg md:text-xl lg:text-2xl',
+      'd-md': 'text-sm sm:text-base md:text-lg lg:text-xl',
       'd-lg': 'text-2xl sm:text-4xl md:text-5xl lg:text-6xl',
     },
     font: {
@@ -63,8 +64,20 @@ const textVariants = cva(defaultTextTwClass, {
   },
 })
 
-function Typography({ text, className, ...variantsConfig }: TextProps) {
-  return <p className={cn(textVariants(variantsConfig), className)}>{text}</p>
+function Typography({
+  text,
+  dataTestId,
+  className,
+  ...variantsConfig
+}: TextProps) {
+  return (
+    <p
+      data-test-id={dataTestId}
+      className={cn(textVariants(variantsConfig), className)}
+    >
+      {text}
+    </p>
+  )
 }
 
 export default Typography

@@ -3,6 +3,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 
+import { Youtube } from 'lucide-react'
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -10,10 +11,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from '@components/ui/navigation-menu'
-
-import ToggleTheme from '../base/ToggleTheme'
-import { Youtube } from 'lucide-react'
-import MobileMenu from '@components/base/MobileMenu'
+import { MobileMenu, ToggleTheme } from '@components/base'
 
 interface HeaderMenuListProps {
   direction?: 'col' | 'row'
@@ -56,7 +54,7 @@ function HeaderMenuList({
           <Link href="https://www.youtube.com/@In-tuned" target="_blank">
             <div
               className={
-                'inline-flex items-center justify-center rounded-md focus:outline-none focus:bg-slate-100 border-solid border-2 border-slate-900 dark:border-slate-100 hover:bg-black/5 dark:hover:bg-black/10 focus:bg-black/30 transition ease-in-out delay-150 hover:scale-110 duration-300 gap-1 py-2 px-2 h-10 w-max'
+                'inline-flex h-10 w-max items-center justify-center gap-1 rounded-md border-2 border-solid border-slate-900 p-2 transition duration-300 delay-150 ease-in-out hover:scale-110 hover:bg-black/5 focus:bg-slate-100 focus:outline-none dark:border-slate-100 dark:hover:bg-black/10 dark:focus:bg-black/30'
               }
             >
               <Youtube /> Our chanel
