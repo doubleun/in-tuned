@@ -16,8 +16,7 @@ module.exports = {
       colors: {
         brand: brandColor,
         brandBg: '#01061B',
-        brandNavBgFrom: '#030B1F',
-        brandNavBgTo: '#010516',
+        brandNavBg: '#010516',
       },
       keyframes: {
         'accordion-down': {

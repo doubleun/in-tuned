@@ -1,6 +1,6 @@
-// import Image from 'next/image'
+import Image from 'next/image'
 
-import { Typography } from '@components/base'
+import { ImageStack, Typography } from '@components/base'
 import { VideosSlider } from '@components/compound'
 
 function HomePage() {
@@ -46,26 +46,102 @@ function HomePage() {
           </div>
         </div>
       </div>
-      {/* Second section - video carousel */}
+      {/* TODO: extract these "section" into a component */}
+      {/* Second section - tools */}
+      <div
+        data-test-id="tools-foundation"
+        className="custom-container flex h-[100svh] w-auto flex-col justify-center gap-6 dark:bg-brandBg md:py-12"
+      >
+        <Typography
+          dataTestId="tools-title"
+          text="What we use"
+          typo="h3"
+          font="serif"
+          className="text-lg font-light sm:text-2xl md:text-3xl"
+        />
+        <div data-test-id="tools-image-stack-container">
+          <ImageStack
+            dataTestId="tools-image-stack-list"
+            images={[
+              {
+                src: '/icons/chatGPT.png',
+                dataTestId: 'chat-GPT-icon',
+                alt: 'chatGPTIcon',
+                className: 'object-contain',
+              },
+              {
+                src: '/icons/midjourney.jpeg',
+                dataTestId: 'midjourney-icon',
+                alt: 'midjourneyIcon',
+                className: 'object-contain',
+              },
+              {
+                src: '/icons/leonardo.svg',
+                dataTestId: 'leonardo-icon',
+                alt: 'leonardoIcon',
+                className: 'object-contain',
+              },
+              {
+                src: '/icons/runway.png',
+                dataTestId: 'runway-icon',
+                alt: 'runwayIcon',
+                className: 'object-contain',
+              },
+            ]}
+          />
+        </div>
+      </div>
+      {/* Third section - video carousel */}
       <div
         data-test-id="videos-slider-foundation"
-        className="grid h-[100svh] w-auto grid-rows-2 py-20 dark:bg-brandBg"
+        className="flex h-[100svh] w-auto flex-col justify-center gap-6 pt-12 dark:bg-brandBg sm:gap-14"
       >
+        {/* Sub section I: Text */}
         <div
-          data-test-id="videos-slider-container"
-          className="flex flex-col justify-center gap-5 overflow-auto"
+          data-test-id="videos-slider-title-container"
+          className="custom-container flex flex-col justify-between sm:flex-row"
         >
           <Typography
-            dataTestId="welcome-subtitle-text"
-            text="Start exploring the world of AI now at our channel"
+            dataTestId="videos-slider-title-left"
+            text="Some of our work"
             typo="h3"
-            font="inter"
-            className="custom-container self-center text-center text-sm sm:text-xl md:text-2xl"
+            font="serif"
+            className="text-lg font-light sm:text-2xl md:text-3xl"
           />
+          <div className="sm:w-[18rem]">
+            <Typography
+              dataTestId="videos-slider-title-right"
+              text="Start exploring the world of AI now at our channel"
+              typo="h4"
+              font="roboto"
+              className="text-xs font-light sm:text-base md:text-lg"
+            />
+          </div>
+        </div>
+        {/* Sub section II: Videos slider */}
+        <div className="custom-container">
           {/* @ts-expect-error Async Server Component */}
           <VideosSlider />
         </div>
       </div>
+      {/* Forth section - image break */}
+      <div
+        data-test-id="image-brak-foundation"
+        className="flex h-[100svh] w-auto flex-col py-12 dark:bg-brandBg"
+      >
+        <div
+          data-test-id="video-slider-image-display"
+          className="relative h-full w-full opacity-20"
+        >
+          <Image src="/img.png" alt="display image" fill={true} />
+        </div>
+      </div>
+
+      {/* Fifth section - about us */}
+      <div
+        data-test-id="about-us-foundation"
+        className="custom-container flex h-[100svh] w-auto flex-col py-12 dark:bg-brandBg"
+      ></div>
     </>
   )
 }

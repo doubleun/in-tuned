@@ -1,4 +1,4 @@
-import { Inter, Righteous, Roboto } from 'next/font/google'
+import { Inter, Righteous, Roboto, Source_Serif_Pro } from 'next/font/google'
 
 export const righteous = Righteous({
   weight: ['400'],
@@ -7,15 +7,22 @@ export const righteous = Righteous({
 })
 
 export const roboto = Roboto({
-  weight: ['400', '700'],
+  weight: ['300', '400', '500', '700'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
   variable: '--roboto-font',
 })
 
 export const inter = Inter({
-  weight: ['400', '700'],
+  weight: ['200', '300', '400', '500', '700'],
   style: ['normal'],
   subsets: ['latin'],
   variable: '--inter-font',
+})
+
+export const serif = Source_Serif_Pro({
+  weight: ['200', '300', '400', '600', '700'],
+  style: ['normal'],
+  subsets: ['latin'],
+  variable: '--serif-font',
 })

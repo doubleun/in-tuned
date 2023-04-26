@@ -14,13 +14,12 @@ const stylesTwClass = {
   header:
     // 'sticky w-full h-16 border-b border-b-slate-200 bg-white dark:border-b-slate-700 dark:bg-slate-900',
     'sticky w-full h-16 border-b border-b-slate-200 bg-white dark:border-0 dark:bg-transparent dark:transition-colors dark:duration-700',
-  headerScrolled: `transition-colors dark:bg-brandNavBgTo duration-1000`,
+  headerScrolled: `transition-colors dark:bg-brandNavBg duration-1000`,
   nav: 'flex items-center w-auto h-full justify-between custom-container',
 }
 
 function Header({ logo }: HeaderComponent) {
   const scrollPosition = useScrollPosition()
-  console.log(scrollPosition)
 
   return (
     <div

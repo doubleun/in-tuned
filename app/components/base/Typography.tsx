@@ -2,7 +2,7 @@ import { cn } from '@utils'
 import { VariantProps, cva } from 'class-variance-authority'
 import * as fonts from '@fonts'
 
-const { righteous, inter, roboto } = fonts
+const { righteous, inter, roboto, serif } = fonts
 
 interface TextProps extends VariantProps<typeof textVariants> {
   text: string
@@ -19,6 +19,7 @@ const textVariants = cva(defaultTextTwClass, {
       h2: 'scroll-m-20 text-3xl font-semibold tracking-tight',
       h3: 'scroll-m-20 text-2xl font-semibold tracking-tight',
       h4: 'scroll-m-20 text-xl font-semibold tracking-tight',
+      clean: 'scroll-m-20 tracking-tight',
       p: 'leading-7 [&:not(:first-child)]:mt-6',
       lead: 'text-xl text-slate-700 dark:text-slate-400',
       code: 'relative rounded bg-slate-100 py-[0.2rem] px-[0.3rem] font-mono text-sm font-semibold text-slate-900 dark:bg-slate-800 dark:text-slate-400',
@@ -54,6 +55,7 @@ const textVariants = cva(defaultTextTwClass, {
       righteous: righteous.className,
       inter: inter.className,
       roboto: roboto.className,
+      serif: serif.className,
     },
   },
   compoundVariants: [],

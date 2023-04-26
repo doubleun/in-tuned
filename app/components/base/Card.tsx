@@ -4,7 +4,7 @@ import Typography from './Typography'
 import Image from 'next/image'
 
 const CardTwClass = {
-  container: ``,
+  container: `flex flex-col gap-4`,
   image: `relative w-44 h-36 md:w-56 md:h-48`,
 }
 
@@ -17,16 +17,18 @@ function Card(props: CardProps) {
       data-test-id={`${dataTestId}-card-container`}
       className={cn(CardTwClass.container, className)}
     >
-      <div
-        data-test-id={`${dataTestId}-card-image`}
-        className={CardTwClass.image}
-      >
-        {image && image}
-      </div>
-      <div data-test-id={`${dataTestId}-card-title`}>{title && title}</div>
-      <div data-test-id={`${dataTestId}-card-subtitle`}>
-        {subtitle && subtitle}
-      </div>
+      {image && (
+        <div
+          data-test-id={`${dataTestId}-card-image`}
+          className={CardTwClass.image}
+        >
+          {image}
+        </div>
+      )}
+      {title && <div data-test-id={`${dataTestId}-card-title`}>{title}</div>}
+      {subtitle && (
+        <div data-test-id={`${dataTestId}-card-subtitle`}>{subtitle}</div>
+      )}
     </div>
   )
 }

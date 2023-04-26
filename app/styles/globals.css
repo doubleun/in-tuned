@@ -65,4 +65,7 @@ body {
   ::-webkit-scrollbar-thumb:hover {
     background: theme(colors.blue.900);
   }
+  .videos-slider::-webkit-scrollbar {
+    display: none;
+  }
 }
