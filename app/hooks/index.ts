@@ -1,17 +1,2 @@
-import { useEffect, useState } from 'react'
-
-export const useScrollPosition = () => {
-  const [scrollPosition, setScrollPosition] = useState(0)
-
-  useEffect(() => {
-    if (!window) return
-
-    const updatePosition = () => {
-      setScrollPosition(window.pageYOffset)
-    }
-    window.addEventListener('scroll', updatePosition)
-    updatePosition()
-    return () => window.removeEventListener('scroll', updatePosition)
-  }, [])
-  return scrollPosition
-}
+export { default as useScrollPosition } from './useScrollPosition'
+export { default as useIntersectionObserver } from './useIntersectionObserver'

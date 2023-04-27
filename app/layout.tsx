@@ -49,7 +49,7 @@ export default function RootLayout({
         // ['dark']: currentTheme === 'dark'
       })}
     >
-      <body className="relative h-fit">
+      <body className="relative h-fit dark:bg-brandBg">
         {/* Header */}
         <div
           data-test-id="main-header-nav"

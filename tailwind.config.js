@@ -40,6 +40,11 @@ module.exports = {
       transitionDuration: {
         6000: '6000ms',
       },
+      transitionDelay: {
+        400: '400ms',
+        600: '600ms',
+        800: '800ms',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

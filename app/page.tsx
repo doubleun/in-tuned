@@ -68,24 +68,28 @@ function HomePage() {
                 dataTestId: 'chat-GPT-icon',
                 alt: 'chatGPTIcon',
                 className: 'object-contain',
+                text: 'Chat GPT',
               },
               {
                 src: '/icons/midjourney.jpeg',
                 dataTestId: 'midjourney-icon',
                 alt: 'midjourneyIcon',
                 className: 'object-contain',
+                text: 'Midjourney',
               },
               {
                 src: '/icons/leonardo.svg',
                 dataTestId: 'leonardo-icon',
                 alt: 'leonardoIcon',
                 className: 'object-contain',
+                text: 'Leonardo',
               },
               {
                 src: '/icons/runway.png',
                 dataTestId: 'runway-icon',
                 alt: 'runwayIcon',
                 className: 'object-contain',
+                text: 'Runway',
               },
             ]}
           />
