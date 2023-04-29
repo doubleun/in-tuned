@@ -15,7 +15,9 @@ module.exports = {
     extend: {
       colors: {
         brand: brandColor,
+        ployBlue: '#101530',
         brandBg: '#01061B',
+        brandBgDark: '#010515',
         brandNavBg: '#010516',
       },
       keyframes: {

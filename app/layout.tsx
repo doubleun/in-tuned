@@ -53,7 +53,7 @@ export default function RootLayout({
         {/* Header */}
         <div
           data-test-id="main-header-nav"
-          className="sticky top-0 z-[1] bg-custom-container"
+          className="bg-custom-container sticky top-0 z-50"
         >
           <Header logo={<Logo text="In-tuned" />} />
         </div>

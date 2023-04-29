@@ -25,7 +25,7 @@ export const getYoutubeVideos = async (): Promise<YouTubeVideosList> => {
   })
 }
 
-interface YouTubeVideosList {
+export interface YouTubeVideosList {
   kind: string
   etag: string
   nextPageToken: string
@@ -36,7 +36,7 @@ interface YouTubeVideosList {
   }
 }
 
-type YouTubeVideoItem = {
+export type YouTubeVideoItem = {
   kind: string
   etag: string
   id: string

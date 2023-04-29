@@ -1,0 +1,80 @@
+'use client'
+
+import { ReactNode, useRef } from 'react'
+import { motion, useScroll } from 'framer-motion'
+import useParallax from '@hooks/useParallax'
+import { ExceptFirstParameter } from '@types'
+import { cva } from 'class-variance-authority'
+import { cn } from '@utils'
+
+// const defaultParallaxTwClass = `absolute z-[1]`
+const defaultParallaxTwClass = `relative h-fit w-fit`
+
+const simpleParallaxVariant = cva(defaultParallaxTwClass, {
+  variants: {
+    align: {
+      left: `
+        mr-auto
+        [&>div.parallaxOffset]:-right-20
+        [&>div.parallaxOffset]:left-10
+      `,
+      right: `
+        ml-auto
+        [&>div.parallaxOffset]:-left-20
+        [&>div.parallaxOffset]:right-10`,
+      center: `
+      m-auto
+      [&>div.parallaxOffset]:-right-20
+      [&>div.parallaxOffset]:left-10`,
+    },
+  },
+  defaultVariants: {
+    align: 'right',
+  },
+})
+
+/**
+ * Simple parallax section that will cover 100% width and height space of the parent
+ */
+function SimpleParallax({
+  dataTestId,
+  mainComponent,
+  offsetComponent,
+  parallaxSettings = [0, 1, 300, 0],
+  ...variantsConfig
+}: SimpleParallaxProps) {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({ target: ref })
+  const y = useParallax(scrollYProgress, ...parallaxSettings)
+
+  return (
+    <article
+      data-test-id={dataTestId}
+      className={cn(simpleParallaxVariant(variantsConfig))}
+    >
+      <motion.div
+        style={{ y }}
+        className="absolute z-[1] parallaxOffset"
+        data-test-id="parallax-offset-component"
+      >
+        {offsetComponent}
+      </motion.div>
+      <div
+        ref={ref}
+        data-test-id="parallax-main-component"
+        className="parallaxMain"
+      >
+        {mainComponent}
+      </div>
+    </article>
+  )
+}
+export default SimpleParallax
+
+interface SimpleParallaxProps {
+  dataTestId: string
+  mainComponent: ReactNode
+  offsetComponent: ReactNode
+  align?: 'left' | 'center' | 'right'
+  parallaxSettings?: ExceptFirstParameter<Parameters<typeof useParallax>>
+}

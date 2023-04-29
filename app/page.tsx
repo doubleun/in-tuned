@@ -1,14 +1,16 @@
 import Image from 'next/image'
 
-import { ImageStack, Typography } from '@components/base'
-import { VideosSlider } from '@components/compound'
+import { Card, ImageStack, Typography } from '@components/base'
+import { AboutUs, VideosSliderContainer } from '@components/compound'
+import SimpleParallax from '@components/base/SimpleParallax'
+import ImageWrapper from '@components/base/ImageWrapper'
 
 function HomePage() {
   return (
     <>
       {/* First section - home page */}
       {/* use `h-full-no-nav` instead of `h-[100svh]` cuz we need to subtract the nav height */}
-      <div
+      <section
         data-test-id="homepage-foundation"
         className="h-full-no-nav custom-container grid w-auto grid-rows-3"
       >
@@ -45,10 +47,159 @@ function HomePage() {
             />
           </div>
         </div>
-      </div>
+      </section>
       {/* TODO: extract these "section" into a component */}
-      {/* Second section - tools */}
-      <div
+      {/* Second section - Parallax - sample work */}
+      <section
+        data-test-id="image-parallax-foundation"
+        className="flex h-fit w-auto flex-col gap-20 pb-40 pt-60 dark:bg-brandBgDark sm:gap-28"
+      >
+        {/* Sub section I: Title */}
+        <Typography
+          weight="bold"
+          dataTestId="image-parallax-title"
+          text="Explore the world of AI"
+          typo="h1"
+          size="d-lg"
+          className="m-auto"
+          font="righteous"
+        />
+        {/* Sub section II: Parallax images */}
+        <div
+          data-test-id="image-parallax-container"
+          className="container m-auto flex h-full w-full flex-col gap-28 sm:gap-24 xl:px-20"
+        >
+          {/* Refactor this into a list instead */}
+          <SimpleParallax
+            dataTestId="image-parallax-show-case-1"
+            mainComponent={
+              <ImageWrapper
+                image={
+                  <Image
+                    src="/images/sample/sample1.png"
+                    alt="sample1"
+                    fill={true}
+                  />
+                }
+              />
+            }
+            offsetComponent={
+              <Card
+                dataTestId="show-case-prompt-1"
+                title={
+                  <Typography
+                    dataTestId="show-case-prompt-1-typo"
+                    text='"Hypnotic pattern in the sea, ship, surrealism, top view from afar, black and white photography, ultra details, 8k --v 5 --ar 2:3"'
+                    typo="code"
+                    size="xs"
+                    style="italic"
+                  />
+                }
+                className="w-full"
+              />
+            }
+            parallaxSettings={[0, 1, 460, 0]}
+            align="left"
+          />
+          <SimpleParallax
+            dataTestId="image-parallax-show-case-2"
+            mainComponent={
+              <ImageWrapper
+                image={
+                  <Image
+                    src="/images/sample/sample2.png"
+                    alt="sample2"
+                    fill={true}
+                  />
+                }
+                className="max-h-[12rem] max-w-[20rem] sm:max-h-[20rem] sm:max-w-lg md:max-w-xl"
+              />
+            }
+            offsetComponent={
+              <Card
+                dataTestId="show-case-prompt-2"
+                title={
+                  <Typography
+                    dataTestId="show-case-prompt-2-typo"
+                    text="Kyoto, Japan ::paranoma :: realistic :: perfect details :: cinematic light --v 5 --ar 16:9"
+                    typo="code"
+                    size="xs"
+                    style="italic"
+                  />
+                }
+                className="w-2/3 sm:w-3/4"
+              />
+            }
+            parallaxSettings={[0, 1, 320, 0]}
+            align="right"
+          />
+          <SimpleParallax
+            dataTestId="image-parallax-show-case-3"
+            mainComponent={
+              <ImageWrapper
+                image={
+                  <Image
+                    src="/images/sample/sample3.png"
+                    alt="sample3"
+                    fill={true}
+                  />
+                }
+              />
+            }
+            offsetComponent={
+              <Card
+                dataTestId="show-case-prompt-3"
+                title={
+                  <Typography
+                    dataTestId="show-case-prompt-3-typo"
+                    text="Portrait of a middle age Man wearing a black hoodie with shorts on a sidewalk of a city street :: Night, Urban :: Bokeh, DOF, Hasselblad XPAN --ar 2:3 --v 5"
+                    typo="code"
+                    size="xs"
+                    style="italic"
+                  />
+                }
+                className="w-full"
+              />
+            }
+            parallaxSettings={[0, 1, 460, 0]}
+            align="left"
+          />
+          <SimpleParallax
+            dataTestId="image-parallax-show-case-4"
+            mainComponent={
+              <ImageWrapper
+                image={
+                  <Image
+                    src="/images/sample/sample4.png"
+                    alt="sample4"
+                    fill={true}
+                  />
+                }
+                className="opacity-80 max-h-[18rem] max-w-[18rem] sm:max-h-[24rem] sm:max-w-sm"
+              />
+            }
+            offsetComponent={
+              <Card
+                dataTestId="show-case-prompt-4"
+                title={
+                  <Typography
+                    dataTestId="show-case-prompt-4-typo"
+                    text="Siberian play with cute kid --v 5"
+                    typo="code"
+                    size="xs"
+                    style="italic"
+                  />
+                }
+                className="w-fit"
+              />
+            }
+            parallaxSettings={[0, 1, 460, 0]}
+            align="right"
+          />
+        </div>
+      </section>
+      {/* Third section - tools */}
+      <section
         data-test-id="tools-foundation"
         className="custom-container flex h-[100svh] w-auto flex-col justify-center gap-6 dark:bg-brandBg md:py-12"
       >
@@ -60,6 +211,7 @@ function HomePage() {
           className="text-lg font-light sm:text-2xl md:text-3xl"
         />
         <div data-test-id="tools-image-stack-container">
+          {/* TODO: use framer motion instead */}
           <ImageStack
             dataTestId="tools-image-stack-list"
             images={[
@@ -94,9 +246,9 @@ function HomePage() {
             ]}
           />
         </div>
-      </div>
-      {/* Third section - video carousel */}
-      <div
+      </section>
+      {/* Forth section - video carousel */}
+      <section
         data-test-id="videos-slider-foundation"
         className="flex h-[100svh] w-auto flex-col justify-center gap-6 pt-12 dark:bg-brandBg sm:gap-14"
       >
@@ -105,13 +257,20 @@ function HomePage() {
           data-test-id="videos-slider-title-container"
           className="custom-container flex flex-col justify-between sm:flex-row"
         >
-          <Typography
-            dataTestId="videos-slider-title-left"
-            text="Some of our work"
-            typo="h3"
-            font="serif"
-            className="text-lg font-light sm:text-2xl md:text-3xl"
-          />
+          <div className="flex items-center gap-4">
+            <div>
+              <Typography
+                dataTestId="videos-slider-title-left"
+                text="Watch us on "
+                typo="h3"
+                font="serif"
+                className="text-lg font-light sm:text-2xl md:text-3xl"
+              />
+            </div>
+            <div className="relative h-10 w-10">
+              <Image src="/icons/yt.svg" alt="Some of our work" fill={true} />
+            </div>
+          </div>
           <div className="sm:w-[18rem]">
             <Typography
               dataTestId="videos-slider-title-right"
@@ -125,27 +284,16 @@ function HomePage() {
         {/* Sub section II: Videos slider */}
         <div className="custom-container">
           {/* @ts-expect-error Async Server Component */}
-          <VideosSlider />
+          <VideosSliderContainer />
         </div>
-      </div>
-      {/* Forth section - image break */}
-      <div
-        data-test-id="image-brak-foundation"
-        className="flex h-[100svh] w-auto flex-col py-12 dark:bg-brandBg"
-      >
-        <div
-          data-test-id="video-slider-image-display"
-          className="relative h-full w-full opacity-20"
-        >
-          <Image src="/img.png" alt="display image" fill={true} />
-        </div>
-      </div>
-
+      </section>
       {/* Fifth section - about us */}
-      <div
+      <section
         data-test-id="about-us-foundation"
         className="custom-container flex h-[100svh] w-auto flex-col py-12 dark:bg-brandBg"
-      ></div>
+      >
+        <AboutUs />
+      </section>
     </>
   )
 }
