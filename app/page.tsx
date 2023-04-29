@@ -67,7 +67,7 @@ function HomePage() {
         {/* Sub section II: Parallax images */}
         <div
           data-test-id="image-parallax-container"
-          className="container m-auto flex h-full w-full flex-col gap-28 sm:gap-24 xl:px-20"
+          className="container m-auto flex h-full w-full flex-col gap-28 sm:gap-24 xl:px-32"
         >
           {/* Refactor this into a list instead */}
           <SimpleParallax
@@ -93,6 +93,7 @@ function HomePage() {
                     typo="code"
                     size="xs"
                     style="italic"
+                    className="backdrop-blur-md dark:bg-slate-800/10 dark:text-slate-300"
                   />
                 }
                 className="w-full"
@@ -125,6 +126,7 @@ function HomePage() {
                     typo="code"
                     size="xs"
                     style="italic"
+                    className="backdrop-blur-md dark:bg-slate-800/10 dark:text-slate-300"
                   />
                 }
                 className="w-2/3 sm:w-3/4"
@@ -156,6 +158,7 @@ function HomePage() {
                     typo="code"
                     size="xs"
                     style="italic"
+                    className="backdrop-blur-md dark:bg-slate-800/10 dark:text-slate-300"
                   />
                 }
                 className="w-full"
@@ -188,6 +191,7 @@ function HomePage() {
                     typo="code"
                     size="xs"
                     style="italic"
+                    className="backdrop-blur-md dark:bg-slate-800/10 dark:text-slate-300"
                   />
                 }
                 className="w-fit"
@@ -207,7 +211,7 @@ function HomePage() {
           dataTestId="tools-title"
           text="What we use"
           typo="h3"
-          font="serif"
+          font="righteous"
           className="text-lg font-light sm:text-2xl md:text-3xl"
         />
         <div data-test-id="tools-image-stack-container">
@@ -263,7 +267,7 @@ function HomePage() {
                 dataTestId="videos-slider-title-left"
                 text="Watch us on "
                 typo="h3"
-                font="serif"
+                font="righteous"
                 className="text-lg font-light sm:text-2xl md:text-3xl"
               />
             </div>
@@ -276,7 +280,7 @@ function HomePage() {
               dataTestId="videos-slider-title-right"
               text="Start exploring the world of AI now at our channel"
               typo="h4"
-              font="roboto"
+              font="inter"
               className="text-xs font-light sm:text-base md:text-lg"
             />
           </div>
@@ -290,7 +294,7 @@ function HomePage() {
       {/* Fifth section - about us */}
       <section
         data-test-id="about-us-foundation"
-        className="custom-container flex h-[100svh] w-auto flex-col py-12 dark:bg-brandBg"
+        className="custom-container flex h-[100svh] w-auto flex-col py-12 dark:bg-brandBgDark"
       >
         <AboutUs />
       </section>

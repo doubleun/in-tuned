@@ -56,7 +56,7 @@ function ImageStack(props: ImageStack) {
             <Typography
               dataTestId="welcome-title-text-bottom"
               text={image.text ?? ''}
-              font="righteous"
+              font="inter"
               typo="clean"
               className="text-center text-base sm:text-xl md:text-2xl lg:text-4xl"
             />

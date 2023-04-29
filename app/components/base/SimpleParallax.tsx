@@ -10,6 +10,8 @@ import { cn } from '@utils'
 // const defaultParallaxTwClass = `absolute z-[1]`
 const defaultParallaxTwClass = `relative h-fit w-fit`
 
+// [&>div.parallaxOffset]:sm:-left-32
+// [&>div.parallaxOffset]:sm:right-20
 const simpleParallaxVariant = cva(defaultParallaxTwClass, {
   variants: {
     align: {
@@ -17,15 +19,25 @@ const simpleParallaxVariant = cva(defaultParallaxTwClass, {
         mr-auto
         [&>div.parallaxOffset]:-right-20
         [&>div.parallaxOffset]:left-10
+        [&>div.parallaxOffset]:sm:-right-[17rem]
+        [&>div.parallaxOffset]:sm:left-[14rem]
+        [&>div.parallaxOffset]:md:-right-[22rem]
+        [&>div.parallaxOffset]:md:left-[22rem]
       `,
       right: `
         ml-auto
         [&>div.parallaxOffset]:-left-20
-        [&>div.parallaxOffset]:right-10`,
+        [&>div.parallaxOffset]:right-10
+        [&>div.parallaxOffset]:sm:-left-[8rem]
+        [&>div.parallaxOffset]:sm:right-[5rem]
+        [&>div.parallaxOffset]:md:-left-[10rem]
+        [&>div.parallaxOffset]:md:right-[10rem]
+      `,
       center: `
       m-auto
       [&>div.parallaxOffset]:-right-20
-      [&>div.parallaxOffset]:left-10`,
+      [&>div.parallaxOffset]:left-10
+    `,
     },
   },
   defaultVariants: {
