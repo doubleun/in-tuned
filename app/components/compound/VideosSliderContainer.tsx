@@ -1,8 +1,8 @@
 import { VideoSlider } from '@components/base'
-import { getYoutubeVideos } from '@service/youtube'
+import { getFeaturedVideos } from '@service/youtube'
 
 async function VideosSliderContainer() {
-  const videos = (await getYoutubeVideos()).items
+  const videos = (await getFeaturedVideos({ useMock: true })).items
   // console.log('vids: ', vids)
 
   return <VideoSlider videos={videos} />

@@ -1,6 +1,7 @@
 import { cn } from '@utils'
 import { VariantProps, cva } from 'class-variance-authority'
 import * as fonts from '@fonts'
+import React from 'react'
 
 const { righteous, inter, roboto, serif } = fonts
 
@@ -66,21 +67,22 @@ const textVariants = cva(defaultTextTwClass, {
   },
 })
 
-function Typography({
-  text,
-  dataTestId,
-  className,
-  ...variantsConfig
-}: TextProps) {
-  return (
-    <p
-      data-test-id={dataTestId}
-      className={cn(textVariants(variantsConfig), className)}
-    >
-      {text}
-    </p>
-  )
-}
+const Typography = React.forwardRef<HTMLParagraphElement, TextProps>(
+  function Text(
+    { text, dataTestId, className, ...variantsConfig },
+    forwardRef
+  ) {
+    return (
+      <p
+        data-test-id={dataTestId}
+        className={cn(textVariants(variantsConfig), className)}
+        ref={forwardRef}
+      >
+        {text}
+      </p>
+    )
+  }
+)
 
 export default Typography
 

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 import { Card, ImageStack, Typography } from '@components/base'
-import { AboutUs, VideosSliderContainer } from '@components/compound'
+import { EndHomeSection, VideosSliderContainer } from '@components/compound'
 import SimpleParallax from '@components/base/SimpleParallax'
 import ImageWrapper from '@components/base/ImageWrapper'
 
@@ -294,9 +294,9 @@ function HomePage() {
       {/* Fifth section - about us */}
       <section
         data-test-id="about-us-foundation"
-        className="custom-container flex h-[100svh] w-auto flex-col py-12 dark:bg-brandBgDark"
+        className="custom-container h-full-no-nav dark:bg-brandBgDark"
       >
-        <AboutUs />
+        <EndHomeSection />
       </section>
     </>
   )
