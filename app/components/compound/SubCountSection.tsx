@@ -4,7 +4,7 @@ import { getChannelDetails, getMostViewedVideos } from '@service'
 import Image from 'next/image'
 
 async function SubCountSection() {
-  const channelData = (await getChannelDetails({ useMock: true })).items
+  const channelData = (await getChannelDetails({ useMock: false })).items
   const subCount = channelData[0].statistics.subscriberCount
 
   return (
