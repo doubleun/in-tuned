@@ -4,6 +4,8 @@ import { Card } from '@components/base'
 import { useIntersectionObserver } from '@hooks'
 import { YouTubeVideoItem } from '@service'
 import { cn } from '@utils'
+import { useScroll } from 'framer-motion'
+import { useRef } from 'react'
 
 const videosSliderTwClass = {
   container: `flex gap-4 videos-slider overflow-x-scroll h-fit`,
@@ -14,6 +16,10 @@ const videosSliderTwClass = {
 
 // TODO: Take care of any
 export function VideoSlider({ videos }: { videos: YouTubeVideoItem[] }) {
+  // TODO: Add scroll progress
+  // const ref = useRef<HTMLDivElement>(null)
+  // const { scrollXProgress } = useScroll({ container: ref })
+
   const [containerRef, isVisible] = useIntersectionObserver<HTMLDivElement>({
     root: null,
     rootMargin: '100px',
@@ -36,6 +42,7 @@ export function VideoSlider({ videos }: { videos: YouTubeVideoItem[] }) {
     >
       {videos.map((item: YouTubeVideoItem, index) => (
         <Card
+          // ref={ref}
           key={item.id}
           dataTestId={`video-item-${index}`}
           image={

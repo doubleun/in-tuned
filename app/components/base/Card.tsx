@@ -1,5 +1,5 @@
 import { cn } from '@utils'
-import { ReactNode } from 'react'
+import { ReactNode, RefObject } from 'react'
 import Typography from './Typography'
 import Image from 'next/image'
 
@@ -10,10 +10,11 @@ const CardTwClass = {
 
 // NOTE: Create variant if needed
 function Card(props: CardProps) {
-  const { dataTestId, image, title, subtitle, className } = props
+  const { dataTestId, image, title, subtitle, className, ref } = props
 
   return (
     <div
+      ref={ref}
       data-test-id={`${dataTestId}-card-container`}
       className={cn(CardTwClass.container, className)}
     >
@@ -43,4 +44,5 @@ interface CardProps {
   title?: ReactNode
   subtitle?: ReactNode
   className?: string
+  ref?: RefObject<HTMLDivElement>
 }
