@@ -13,6 +13,8 @@ import { Menu } from 'lucide-react'
 import { ReactNode } from 'react'
 
 interface SheetComponentProps {
+  open?: boolean
+  onOpenChange?(open: boolean): void
   dataTestId?: string | undefined
   description?: string | undefined
   content?: ReactNode
@@ -20,12 +22,14 @@ interface SheetComponentProps {
 
 //TODO: make sheet generic
 function SheetComponent({
+  open,
+  onOpenChange,
   dataTestId,
   content,
   description,
 }: SheetComponentProps) {
   return (
-    <Sheet data-test-id={dataTestId}>
+    <Sheet data-test-id={dataTestId} open={open} onOpenChange={onOpenChange}>
       <SheetTrigger asChild>
         <Menu width={28} height={28} />
       </SheetTrigger>

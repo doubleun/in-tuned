@@ -232,6 +232,14 @@ const SheetDescription = React.forwardRef<
 ))
 SheetDescription.displayName = SheetPrimitive.Description.displayName
 
+const SheetClose = React.forwardRef<
+  React.ElementRef<typeof SheetPrimitive.Close>,
+  React.ComponentPropsWithoutRef<typeof SheetPrimitive.Close>
+>(({ className, ...props }, ref) => (
+  <SheetPrimitive.Close ref={ref} {...props} />
+))
+SheetClose.displayName = SheetPrimitive.Title.displayName
+
 export {
   Sheet,
   SheetTrigger,
@@ -240,4 +248,5 @@ export {
   SheetFooter,
   SheetTitle,
   SheetDescription,
+  SheetClose,
 }

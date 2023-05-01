@@ -1,5 +1,4 @@
 import { GlowIcon, Typography } from '@components/base'
-import Link from 'next/link'
 
 export function FooterComponent() {
   return (
@@ -37,4 +36,4 @@ export function FooterComponent() {
     </article>
   )
 }
-// export default FooterComponent
+export default FooterComponent

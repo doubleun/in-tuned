@@ -258,6 +258,7 @@ function HomePage() {
       </section>
       {/* Forth section - video carousel */}
       <section
+        id="our-videos"
         data-test-id="videos-slider-foundation"
         className="flex h-[100svh] w-auto flex-col bg-slate-100 justify-center gap-6 pt-12 dark:bg-none dark:bg-brandBg sm:gap-14"
       >

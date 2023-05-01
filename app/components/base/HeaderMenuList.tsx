@@ -11,45 +11,64 @@ import {
 
 import { ToggleTheme } from '@components/base'
 import Link from 'next/link'
+import { useCallback } from 'react'
 
 interface HeaderMenuListProps {
   direction?: 'col' | 'row'
   showToggleLabel?: boolean
   className?: string | undefined
+  setOpen?(open: boolean): void
 }
 
 function HeaderMenuList({
   direction = 'row',
   showToggleLabel,
   className,
+  setOpen,
 }: HeaderMenuListProps) {
+  const handleCloseDialog = useCallback(() => {
+    setOpen && setOpen(false)
+  }, [setOpen])
+
   return (
     <NavigationMenu className={className} data-test-id="header-navigation-menu">
       <NavigationMenuList
         className={`flex-${direction} gap-1`}
         data-test-id="header-navigation-list"
       >
-        <NavigationMenuItem data-test-id="header-navigation-item-toggle-theme">
+        <NavigationMenuItem
+          data-test-id="header-navigation-item-toggle-theme"
+          onClick={handleCloseDialog}
+        >
           <ToggleTheme
             className={navigationMenuTriggerStyle()}
             showLabel={showToggleLabel}
           />
         </NavigationMenuItem>
-        <NavigationMenuItem data-test-id="header-navigation-item-showcase">
-          <Link href="/" legacyBehavior passHref>
+        <NavigationMenuItem
+          data-test-id="header-navigation-item-showcase"
+          onClick={handleCloseDialog}
+        >
+          <Link href="#our-videos" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Show case
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
-        <NavigationMenuItem data-test-id="header-navigation-item-contact">
+        <NavigationMenuItem
+          data-test-id="header-navigation-item-contact"
+          onClick={handleCloseDialog}
+        >
           <Link href="/" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Contact Us
+              Contact
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
-        <NavigationMenuItem data-test-id="header-navigation-item-youtube">
+        <NavigationMenuItem
+          data-test-id="header-navigation-item-youtube"
+          onClick={handleCloseDialog}
+        >
           <Link href="https://www.youtube.com/@In-tuned" target="_blank">
             <div
               className={
