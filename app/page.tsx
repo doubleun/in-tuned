@@ -302,6 +302,7 @@ function HomePage() {
         data-test-id="end-home-section-foundation"
         className="h-full-no-nav flex flex-col bg-white dark:bg-brandBgDark"
       >
+        {/* @ts-expect-error Async Server Component */}
         <MarqueeText />
         <div className="custom-container flex-1">
           {/* @ts-expect-error Async Server Component */}

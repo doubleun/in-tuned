@@ -5,6 +5,7 @@ import Image from 'next/image'
 
 async function SubCountSection() {
   const channelData = (await getChannelDetails({ useMock: true })).items
+  const subCount = channelData[0].statistics.subscriberCount
 
   return (
     <div
@@ -30,7 +31,7 @@ async function SubCountSection() {
           <CountNumber
             dataTestId="end-home-background-subscriber-count"
             from={0}
-            to={10}
+            to={Number(subCount)}
             textClassName="font-outline-2 relative z-[1] h-fit w-fit text-[8rem] font-bold leading-none sm:text-[15rem] md:text-[18rem] lg:text-[24rem]"
           />
           <Typography

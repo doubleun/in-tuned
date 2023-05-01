@@ -5,6 +5,7 @@ import { useIntersectionObserver } from '@hooks'
 import { YouTubeVideoItem } from '@service'
 import { cn } from '@utils'
 import { useScroll } from 'framer-motion'
+import Link from 'next/link'
 import { useRef } from 'react'
 
 const videosSliderTwClass = {
@@ -41,27 +42,32 @@ export function VideoSlider({ videos }: { videos: YouTubeVideoItem[] }) {
       onScroll={handleToggleScrollbar}
     >
       {videos.map((item: YouTubeVideoItem, index) => (
-        <Card
-          // ref={ref}
+        <Link
+          href={`https://www.youtube.com/watch?v=${item.contentDetails.videoId}`}
+          target="_blank"
           key={item.id}
-          dataTestId={`video-item-${index}`}
-          image={
-            <Card.Image
-              src={item.snippet.thumbnails.high.url}
-              alt={item.snippet.title}
-              fill={true}
-            />
-          }
-          title={
-            <Card.Title
-              dataTestId={`video-item-${index}`}
-              text={item.snippet.title}
-              typo="p"
-              className="text-xs sm:text-sm"
-            />
-          }
-          className={videosSliderTwClass.item}
-        />
+        >
+          <Card
+            // ref={ref}
+            dataTestId={`video-item-${index}`}
+            image={
+              <Card.Image
+                src={item.snippet.thumbnails.high.url}
+                alt={item.snippet.title}
+                fill={true}
+              />
+            }
+            title={
+              <Card.Title
+                dataTestId={`video-item-${index}`}
+                text={item.snippet.title}
+                typo="p"
+                className="text-xs sm:text-sm"
+              />
+            }
+            className={videosSliderTwClass.item}
+          />
+        </Link>
       ))}
     </div>
   )
