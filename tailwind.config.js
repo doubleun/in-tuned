@@ -17,6 +17,7 @@ module.exports = {
         brand: brandColor,
         ployBlue: '#101530',
         brandBg: '#01061B',
+        background: '#01061B',
         brandBgDark: '#010515',
         brandNavBg: '#010516',
       },

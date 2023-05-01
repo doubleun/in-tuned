@@ -30,7 +30,7 @@ export function FooterComponent() {
         <GlowIcon
           icon={'Linkedin'}
           size={16}
-          link="mailto:intuned.inspired@gmail.com"
+          link="https://www.linkedin.com/in/wachirachai-nitsomboon-b835b9210/"
         />
       </div>
     </article>

@@ -25,7 +25,12 @@ function GlowIcon({
     const iconComponent = (
       <LucideIcon size={size} className={cn('relative z-[2]', iconClassName)} />
     )
-    if (link) return <Link href={link}>{iconComponent}</Link>
+    if (link)
+      return (
+        <Link href={link} target="_blank">
+          {iconComponent}
+        </Link>
+      )
     else return iconComponent
   }
 

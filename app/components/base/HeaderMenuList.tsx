@@ -12,6 +12,7 @@ import {
 import { ToggleTheme } from '@components/base'
 import Link from 'next/link'
 import { useCallback } from 'react'
+import { ContactPopup } from '@components/compound'
 
 interface HeaderMenuListProps {
   direction?: 'col' | 'row'
@@ -29,6 +30,11 @@ function HeaderMenuList({
   const handleCloseDialog = useCallback(() => {
     setOpen && setOpen(false)
   }, [setOpen])
+
+  const handleOpenContactPopup = useCallback(() => {
+    // close sheet dialog for mobile after open up the contact modal
+    handleCloseDialog()
+  }, [handleCloseDialog])
 
   return (
     <NavigationMenu className={className} data-test-id="header-navigation-menu">
@@ -57,13 +63,14 @@ function HeaderMenuList({
         </NavigationMenuItem>
         <NavigationMenuItem
           data-test-id="header-navigation-item-contact"
-          onClick={handleCloseDialog}
+          // onClick={handleOpenContactPopup}
         >
-          <Link href="/" legacyBehavior passHref>
+          <ContactPopup />
+          {/* <Link href="/" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Contact
             </NavigationMenuLink>
-          </Link>
+          </Link> */}
         </NavigationMenuItem>
         <NavigationMenuItem
           data-test-id="header-navigation-item-youtube"
