@@ -1,7 +1,11 @@
 import Image from 'next/image'
 
 import { Card, ImageStack, Typography } from '@components/base'
-import { SubCountSection, VideosSliderContainer } from '@components/compound'
+import {
+  FooterComponent,
+  SubCountSection,
+  VideosSliderContainer,
+} from '@components/compound'
 import SimpleParallax from '@components/base/SimpleParallax'
 import ImageWrapper from '@components/base/ImageWrapper'
 import MarqueeText from '@components/base/MarqueeText'
@@ -53,7 +57,7 @@ function HomePage() {
       {/* Second section - Parallax - sample work */}
       <section
         data-test-id="image-parallax-foundation"
-        className="flex h-fit w-auto flex-col gap-20 pb-40 pt-60 dark:bg-brandBgDark sm:gap-28"
+        className="flex h-fit w-auto flex-col gap-20 bg-slate-200 pb-40 pt-60 dark:bg-brandBgDark sm:gap-28"
       >
         {/* Sub section I: Title */}
         <Typography
@@ -94,7 +98,7 @@ function HomePage() {
                     typo="code"
                     size="xs"
                     style="italic"
-                    className="backdrop-blur-md dark:bg-slate-800/10 dark:text-slate-300"
+                    className="bg-slate-50/30 text-slate-900 backdrop-blur-sm dark:bg-slate-800/10 dark:text-slate-300 dark:backdrop-blur-md"
                   />
                 }
                 className="w-full"
@@ -127,7 +131,7 @@ function HomePage() {
                     typo="code"
                     size="xs"
                     style="italic"
-                    className="backdrop-blur-md dark:bg-slate-800/10 dark:text-slate-300"
+                    className="bg-slate-50/30 text-slate-900 backdrop-blur-sm dark:bg-slate-800/10 dark:text-slate-300 dark:backdrop-blur-md"
                   />
                 }
                 className="w-2/3 sm:w-3/4"
@@ -159,7 +163,7 @@ function HomePage() {
                     typo="code"
                     size="xs"
                     style="italic"
-                    className="backdrop-blur-md dark:bg-slate-800/10 dark:text-slate-300"
+                    className="bg-slate-50/30 text-slate-900 backdrop-blur-sm dark:bg-slate-800/10 dark:text-slate-300 dark:backdrop-blur-md"
                   />
                 }
                 className="w-full"
@@ -179,7 +183,7 @@ function HomePage() {
                     fill={true}
                   />
                 }
-                className="opacity-80 max-h-[18rem] max-w-[18rem] sm:max-h-[24rem] sm:max-w-sm"
+                className="max-h-[18rem] max-w-[18rem] opacity-80 sm:max-h-[24rem] sm:max-w-sm"
               />
             }
             offsetComponent={
@@ -192,7 +196,7 @@ function HomePage() {
                     typo="code"
                     size="xs"
                     style="italic"
-                    className="backdrop-blur-md dark:bg-slate-800/10 dark:text-slate-300"
+                    className="bg-slate-50/30 text-slate-900 backdrop-blur-sm dark:bg-slate-800/10 dark:text-slate-300 dark:backdrop-blur-md"
                   />
                 }
                 className="w-fit"
@@ -295,13 +299,20 @@ function HomePage() {
       {/* Fifth section - sub count section  */}
       <section
         data-test-id="end-home-section-foundation"
-        className="h-full-no-nav flex flex-col dark:bg-brandBgDark"
+        className="h-full-no-nav flex flex-col bg-slate-200 dark:bg-brandBgDark"
       >
         <MarqueeText />
         <div className="custom-container flex-1">
           {/* @ts-expect-error Async Server Component */}
           <SubCountSection />
         </div>
+        {/* Footer */}
+        <footer
+          data-test-id="home-page-footer-foundation"
+          className="flex h-fit w-full bg-slate-100 dark:bg-slate-900"
+        >
+          <FooterComponent />
+        </footer>
       </section>
     </>
   )

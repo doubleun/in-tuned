@@ -1,9 +1,9 @@
 'use client'
 
 import { ReactNode } from 'react'
-import HeaderMenu from '@components/compound/HeaderMenu'
 import { useScrollPosition } from '@hooks'
 import { cn } from '@utils'
+import HeaderMenu from '@components/compound/HeaderMenu'
 
 interface HeaderComponent {
   logo?: ReactNode

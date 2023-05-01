@@ -1,4 +1,5 @@
-import { HeaderMenu, Sheet } from '@components/compound'
+import { Sheet } from '@components/compound'
+import { HeaderMenuList } from '.'
 
 const styles = {
   container: 'flex md:hidden text-3xl',
@@ -10,7 +11,7 @@ function MobileMenu() {
       <Sheet
         dataTestId="mobile-menu-sheet-container"
         content={
-          <HeaderMenu.HeaderMenuList
+          <HeaderMenuList
             direction="col"
             showToggleLabel
             className="my-2 py-2 border-t-2 border-t-slate-900 dark:border-t-slate-100"
