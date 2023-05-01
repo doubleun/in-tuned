@@ -22,7 +22,8 @@ const rootLayoutTwClass = {
   // bgWrap: 'absolute inset-0 h-[100svh] w-full overflow-visible z-[-1] bg-black',
   bgWrap:
     'absolute inset-0 h-[100svh] w-full z-[-1] bg-black overflow-x-hidden',
-  homePageParent: 'relative bg-white dark:bg-transparent h-fit w-auto',
+  homePageParent:
+    'relative bg-gradient-to-b from-blue-50 to-blue-400 dark:bg-none dark:from dark:bg-transparent h-fit w-auto',
   charContainer:
     'absolute w-24 h-36 right-[-6%] top-[46%] translate-y-[-60%] sm:w-32 sm:h-48 sm:right-[10%] md:w-40 md:h-60 md:top-[48%] lg:w-44 lg:h-64 lg:right-[12%] xl:right-[20%]',
   charAnimation:

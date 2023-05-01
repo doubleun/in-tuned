@@ -11,8 +11,8 @@ interface HeaderComponent {
 
 const stylesTwClass = {
   header:
-    'sticky w-full h-16 border-b border-b-slate-200 bg-white dark:border-0 dark:bg-transparent dark:transition-colors dark:duration-700',
-  headerScrolled: `transition-colors dark:bg-brandNavBg duration-1000`,
+    'sticky w-full h-16 bg-white dark:border-0 dark:bg-transparent dark:transition-colors duration-700',
+  headerScrolled: `transition-colors bg-transparent backdrop-blur dark:bg-brandNavBg duration-1000`,
   nav: 'flex items-center w-auto h-full justify-between custom-container',
 }
 

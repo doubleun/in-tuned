@@ -26,12 +26,12 @@ async function SubCountSection() {
         />
 
         {/* Count subscribers - number */}
-        <div className="relative">
+        <div data-test-id="count-subscribers-container" className="relative">
           <CountNumber
             dataTestId="end-home-background-subscriber-count"
             from={0}
-            to={150}
-            className="font-outline-2 relative z-[1] h-fit w-fit text-[8rem] font-bold leading-none sm:text-[15rem] md:text-[18rem] lg:text-[24rem]"
+            to={10}
+            textClassName="font-outline-2 relative z-[1] h-fit w-fit text-[8rem] font-bold leading-none sm:text-[15rem] md:text-[18rem] lg:text-[24rem]"
           />
           <Typography
             text="*"

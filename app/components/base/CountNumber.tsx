@@ -3,11 +3,20 @@
 import { Typography } from '@components/base'
 import { cn } from '@utils'
 import { useAnimate, useInView } from 'framer-motion'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
-const countNumberTwClass = ``
+const countNumberTwClass = {
+  container: ``,
+  text: `relative z-[2] mx-auto`,
+}
 
-function CountNumber({ dataTestId, from, to, className }: CountNumberProps) {
+function CountNumber({
+  dataTestId,
+  from,
+  to,
+  textClassName,
+}: CountNumberProps) {
+  const backgroundGradientRef = useRef<HTMLDivElement>(null)
   const [scope, animate] = useAnimate()
   const isInView = useInView(scope, { once: true })
 
@@ -19,7 +28,14 @@ function CountNumber({ dataTestId, from, to, className }: CountNumberProps) {
         ease: 'easeOut',
         delay: 1,
         onUpdate(value) {
-          if (node) node.textContent = `${value.toFixed()}`
+          if (node) {
+            node.textContent = `${value.toFixed()}`
+            backgroundGradientRef.current?.classList.add('bg-blue-600')
+            // console.log(backgroundGradientRef.current?.className)
+          }
+        },
+        onComplete() {
+          backgroundGradientRef.current?.classList.remove('bg-blue-600')
         },
       })
       return () => controls.stop()
@@ -33,7 +49,7 @@ function CountNumber({ dataTestId, from, to, className }: CountNumberProps) {
       text={`${from}`}
       typo="h3"
       font="inter"
-      className={cn(countNumberTwClass, className)}
+      className={cn(countNumberTwClass.text, textClassName)}
     />
   )
 }
@@ -44,4 +60,5 @@ interface CountNumberProps {
   from: number
   to: number
   className?: string
+  textClassName?: string
 }
