@@ -26,8 +26,8 @@ const simpleParallaxVariant = cva(defaultParallaxTwClass, {
       `,
       right: `
         ml-auto
-        [&>div.parallaxOffset]:-left-20
-        [&>div.parallaxOffset]:right-10
+        [&>div.parallaxOffset]:-left-16
+        [&>div.parallaxOffset]:right-24
         [&>div.parallaxOffset]:sm:-left-[8rem]
         [&>div.parallaxOffset]:sm:right-[5rem]
         [&>div.parallaxOffset]:md:-left-[10rem]

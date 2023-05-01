@@ -27,6 +27,12 @@ body {
 } */
 
 @layer base {
+  :root {
+    --marquee-gap: 2rem;
+    --marquee-duration: 3s;
+    --marquee-start: 0;
+    --marquee-end: calc(-100% - var(--marquee-gap));
+  }
   body {
     height: 100vh;
     height: 100svh;
@@ -69,3 +75,12 @@ body {
     display: none;
   }
 }
+
+/* @keyframes marquee-left {
+  from {
+    transform: translateX(var(--marquee-start));
+  }
+  to {
+    transform: translateX(var(--marquee-end));
+  }
+} */

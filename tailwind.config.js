@@ -21,6 +21,14 @@ module.exports = {
         brandNavBg: '#010516',
       },
       keyframes: {
+        'marquee-left': {
+          from: {
+            transform: 'translateX(var(--marquee-start))',
+          },
+          to: {
+            transform: 'translateX(var(--marquee-end))',
+          },
+        },
         'accordion-down': {
           from: { height: 0 },
           to: { height: 'var(--radix-accordion-content-height)' },
@@ -31,6 +39,7 @@ module.exports = {
         },
       },
       animation: {
+        'marquee-left': 'marquee-left var(--marquee-duration) linear infinite',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },

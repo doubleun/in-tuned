@@ -1,17 +1,11 @@
 import { cn } from '@utils'
 import { VariantProps, cva } from 'class-variance-authority'
 import * as fonts from '@fonts'
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-const { righteous, inter, roboto, serif } = fonts
+const { righteous, inter, roboto, sansPro } = fonts
 
-interface TextProps extends VariantProps<typeof textVariants> {
-  text: string
-  dataTestId: string
-  className?: string | undefined
-}
-
-const defaultTextTwClass = `text-base text-slate-900 dark:text-slate-100`
+const defaultTextTwClass = `text-base text-slate-900 dark:text-slate-100 w-fit`
 
 const textVariants = cva(defaultTextTwClass, {
   variants: {
@@ -56,7 +50,7 @@ const textVariants = cva(defaultTextTwClass, {
       righteous: righteous.className,
       inter: inter.className,
       roboto: roboto.className,
-      serif: serif.className,
+      sansPro: sansPro.className,
     },
   },
   compoundVariants: [],
@@ -86,8 +80,8 @@ const Typography = React.forwardRef<HTMLParagraphElement, TextProps>(
 
 export default Typography
 
-// Get in-tuned with the latest in AI technology! 🚀🔬
-
-// Hey there! Welcome to In-tuned, where we explore the exciting world of AI and bring you the latest developments in machine learning.
-
-// Our team of Thai creators is passionate about AI and its potential to transform our world. Through our videos, we share our knowledge to help you stay ahead of the curve and be in-tuned with the future of technology.
+interface TextProps extends VariantProps<typeof textVariants> {
+  text: string
+  dataTestId: string
+  className?: string | undefined
+}

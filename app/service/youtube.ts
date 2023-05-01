@@ -34,7 +34,14 @@ export const getFeaturedVideos = async (
   }
 }
 
-export const getMostViewedVideos = async (props?: YouTubeAPIProps) => {
+export const getMostViewedVideos = async (
+  props?: YouTubeAPIProps
+): Promise<
+  Omit<YouTubeVideosList, 'items'> & {
+    regionCode: string
+    items: YouTubeMostViewedVideoItem[]
+  }
+> => {
   const { useMock = false } = props ?? {}
   const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_PUBLIC_API_KEY
   const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UC-OVsNxkA794DuquaAWpAGg&maxResults=5&order=viewCount&key=${apiKey}`
@@ -51,7 +58,9 @@ export const getMostViewedVideos = async (props?: YouTubeAPIProps) => {
   }
 }
 
-export const getChannelDetails = async (props?: YouTubeAPIProps) => {
+export const getChannelDetails = async (
+  props?: YouTubeAPIProps
+): Promise<YouTubeChannelDetails> => {
   const { useMock = false } = props ?? {}
   const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_PUBLIC_API_KEY
   const url = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=UC-OVsNxkA794DuquaAWpAGg&key=${apiKey}`
@@ -121,3 +130,74 @@ const YouTubeThumbnailResolutions = {
 
 type YouTubeThumbnailResolutions =
   (typeof YouTubeThumbnailResolutions)[keyof typeof YouTubeThumbnailResolutions]
+
+export interface YouTubeMostViewedVideoItem {
+  kind: string
+  etag: string
+  id: {
+    kind: string
+    videoId?: string
+  }
+  snippet: {
+    publishedAt: string
+    channelId: string
+    title: string
+    description: string
+    thumbnails: {
+      [key in Exclude<YouTubeThumbnailResolutions, 'maxres' | 'standard'>]: {
+        url: string
+        width: number
+        height: number
+      }
+    }
+    channelTitle: string
+    liveBroadcastContent: string
+    publishTime: string
+  }
+}
+
+export interface YouTubeChannelDetails {
+  kind: string
+  etag: string
+  pageInfo: {
+    totalResults: number
+    resultsPerPage: number
+  }
+  items: YouTubeChannelDetailsItem[]
+}
+
+export interface YouTubeChannelDetailsItem {
+  kind: string
+  etag: string
+  id: string
+  snippet: {
+    title: string
+    description: string
+    customUrl: string
+    publishedAt: string
+    thumbnails: {
+      [key in Exclude<YouTubeThumbnailResolutions, 'maxres' | 'standard'>]: {
+        url: string
+        width: number
+        height: number
+      }
+    }
+    localized: {
+      title: string
+      description: string
+    }
+    country: string
+  }
+  contentDetails: {
+    relatedPlaylists: {
+      likes: string
+      uploads: string
+    }
+  }
+  statistics: {
+    viewCount: string
+    subscriberCount: string
+    hiddenSubscriberCount: boolean
+    videoCount: string
+  }
+}

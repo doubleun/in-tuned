@@ -8,7 +8,7 @@ import clsx from 'clsx'
 
 const imageStackTwClass = {
   container: `flex flex-col gap-[1rem] items-center md:flex-row md:gap-[3rem] w-auto h-full`,
-  itemContainer: `flex flex-col w-[8rem] h-[8rem] sm:w-[10rem] sm:h-[10rem] md:w-full md:h-[12rem] sm:gap-2 lg:gap-4`,
+  itemContainer: `flex items-center flex-col w-[8rem] h-[8rem] sm:w-[10rem] sm:h-[10rem] md:w-full md:h-[12rem] sm:gap-2 lg:gap-4`,
   item: `rounded-lg`,
   animateShow: `opacity-100 transition-all blur-none duration-1000 filter-none translate-x-0`,
   animateHide: `opacity-0 transition-all blur duration-500 delay-0 filter -translate-x-[200%] motion-reduce:transition-none`,

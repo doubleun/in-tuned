@@ -17,9 +17,9 @@ function CountNumber({ dataTestId, from, to, className }: CountNumberProps) {
       const controls = animate(from, to, {
         duration: 4,
         ease: 'easeOut',
-        delay: 0.2,
+        delay: 1,
         onUpdate(value) {
-          if (node) node.textContent = value.toFixed()
+          if (node) node.textContent = `${value.toFixed()}`
         },
       })
       return () => controls.stop()

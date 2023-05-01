@@ -1,9 +1,10 @@
 import Image from 'next/image'
 
 import { Card, ImageStack, Typography } from '@components/base'
-import { EndHomeSection, VideosSliderContainer } from '@components/compound'
+import { SubCountSection, VideosSliderContainer } from '@components/compound'
 import SimpleParallax from '@components/base/SimpleParallax'
 import ImageWrapper from '@components/base/ImageWrapper'
+import MarqueeText from '@components/base/MarqueeText'
 
 function HomePage() {
   return (
@@ -291,12 +292,16 @@ function HomePage() {
           <VideosSliderContainer />
         </div>
       </section>
-      {/* Fifth section - about us */}
+      {/* Fifth section - sub count section  */}
       <section
-        data-test-id="about-us-foundation"
-        className="custom-container h-full-no-nav dark:bg-brandBgDark"
+        data-test-id="end-home-section-foundation"
+        className="h-full-no-nav flex flex-col dark:bg-brandBgDark"
       >
-        <EndHomeSection />
+        <MarqueeText />
+        <div className="custom-container flex-1">
+          {/* @ts-expect-error Async Server Component */}
+          <SubCountSection />
+        </div>
       </section>
     </>
   )
