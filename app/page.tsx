@@ -57,7 +57,7 @@ function HomePage() {
       {/* Second section - Parallax - sample work */}
       <section
         data-test-id="image-parallax-foundation"
-        className="flex h-fit w-auto flex-col gap-20 bg-gradient-to-b from-blue-100 to-blue-300 pb-40 pt-60 dark:bg-brandBgDark sm:gap-28"
+        className="flex h-fit w-auto flex-col gap-20 bg-gradient-to-b from-blue-100 to-blue-300 pb-40 pt-60 dark:bg-none dark:bg-brandBgDark sm:gap-28"
       >
         {/* Sub section I: Title */}
         <Typography
@@ -210,7 +210,7 @@ function HomePage() {
       {/* Third section - tools */}
       <section
         data-test-id="tools-foundation"
-        className="custom-container flex h-[100svh] bg-gradient-to-b from-blue-300 via-blue-200 to-blue-100 w-auto flex-col justify-center gap-6 dark:bg-brandBg md:py-12"
+        className="custom-container flex h-[100svh] bg-gradient-to-b from-blue-300 via-blue-200 to-slate-100 w-auto flex-col justify-center gap-6 dark:bg-none dark:bg-brandBg md:py-12"
       >
         <Typography
           dataTestId="tools-title"
@@ -259,7 +259,7 @@ function HomePage() {
       {/* Forth section - video carousel */}
       <section
         data-test-id="videos-slider-foundation"
-        className="flex h-[100svh] w-auto flex-col bg-slate-100 justify-center gap-6 pt-12 dark:bg-brandBg sm:gap-14"
+        className="flex h-[100svh] w-auto flex-col bg-slate-100 justify-center gap-6 pt-12 dark:bg-none dark:bg-brandBg sm:gap-14"
       >
         {/* Sub section I: Text */}
         <div
