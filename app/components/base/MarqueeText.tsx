@@ -8,7 +8,7 @@ const marqueeTextTwClass = {
 }
 
 async function MarqueeText() {
-  const channelData = (await getChannelDetails({ useMock: false })).items
+  const channelData = (await getChannelDetails({ useMock: true })).items
   const viewCounts = channelData[0].statistics.viewCount
 
   return (
