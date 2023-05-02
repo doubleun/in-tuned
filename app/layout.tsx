@@ -75,7 +75,13 @@ export default function RootLayout({
               rootLayoutTwClass.charAnimation,
             ])}
           >
-            <Image src={'/char_bg.png'} alt="char" fill={true} />
+            <Image
+              src={'/char_bg.png'}
+              alt="char"
+              sizes="100px"
+              loading="lazy"
+              fill={true}
+            />
           </div>
         </div>
         <div className={rootLayoutTwClass.homePageParent}>{children}</div>
