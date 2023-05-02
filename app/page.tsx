@@ -181,6 +181,7 @@ function HomePage() {
                     src="/images/sample/sample4.png"
                     alt="sample4"
                     fill={true}
+                    loading="lazy"
                   />
                 }
                 className="max-h-[18rem] max-w-[18rem] opacity-80 sm:max-h-[24rem] sm:max-w-sm"
