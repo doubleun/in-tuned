@@ -51,6 +51,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  other: {
+    'google-site-verification': 'QWSQRGGC5eCa--5CBH1abEHnq8TD1vbqsfe3zyniS_k',
+  },
 }
 
 const helperTwClass = {
